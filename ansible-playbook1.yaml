@@ -1,0 +1,11 @@
+- name: Copy file to remote server
+  hosts: samplenode3
+  become: true
+  vars:
+    local_file_path: "/path/to/local/file"
+    remote_file_path: "/path/to/remote/file"
+  tasks:
+    - name: Copy file
+      copy:
+        src: "{{ local_file_path }}"
+        dest: "{{ remote_file_path }}"
