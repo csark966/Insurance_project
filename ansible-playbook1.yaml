@@ -2,8 +2,8 @@
   hosts: samplenode3
   become: true
   vars:
-    local_file_path: "/path/to/local/file"
-    remote_file_path: "/path/to/remote/file"
+    local_file_path: "/home/devopsadmin/workspace/fin_try"
+    remote_file_path: "/home/devopsadmin"
   tasks:
     - name: Copy file
       copy:
