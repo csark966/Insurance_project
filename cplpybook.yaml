@@ -1,0 +1,14 @@
+- name: Copy file from Jenkins slave to Ansible controller and then to Kubernetes master
+  hosts: samplenode2:samplenode3
+  become: true
+  gather_facts: false
+  tasks:
+    - name: Copy file from Jenkins slave to Ansible controller
+      fetch:
+        src: /home/devopsadmin/workspace/fin_try/insurancedeployment.yaml
+        dest: /home/devopsadmin
+
+    - name: Copy file from Ansible controller to Kubernetes master
+      copy:
+        src: /home/devopsadmin/insurancedeployment.yaml
+        dest: /home/devopsadmin
