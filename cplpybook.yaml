@@ -1,3 +1,4 @@
+---
 - name: Copy file from Jenkins slave to Ansible controller and then to Kubernetes master
   hosts: samplenode2:samplenode3
   become: true
