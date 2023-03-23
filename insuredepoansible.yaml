@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: csark-insurance-deploy
+  name: csark-insudepoansible-deploy
   labels:
-    app: csark-insurance-deploy
+    app: csark-insudepoansible-deploy
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: csark-insurance-deploy
+      app: csark-insudepoansible-deploy
   template:
     metadata:
       labels:
-        app: csark-insurance-deploy
+        app: csark-insudepoansible-deploy
     spec:
       containers:
-      - name: csark-insurance-container
+      - name: csark-insudepoansible-container
         image: csark/insurance-app
         ports:
         - containerPort: 8081
@@ -23,15 +23,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: csark-insurance-np-service
+  name: csark-insudepoansible-np-service
   labels:
-    app: csark-insurance-deploy
+    app: csark-insudepoansible-deploy
 spec:
   selector:
-    app: csark-insurance-deploy
+    app: csark-insudepoansible-deploy
 
   type: NodePort
   ports:
-  - nodePort: 31500
+  - nodePort: 31600
     port: 8081
     targetPort: 8081
