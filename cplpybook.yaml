@@ -4,7 +4,7 @@
   become: true
 
   vars:
-    local_deployment_file: /etc/ansible/insurancedeployment.yaml
+    local_deployment_file: /etc/ansible/insuredepoansible.yaml
     remote_deployment_file: /home/devopsadmin
     
 
@@ -20,7 +20,7 @@
         var: copy_result
 
     - name: Apply the deployment on remote server
-      command: "kubectl apply -f /home/devopsadmin/insurancedeployment.yaml"
+      command: "kubectl apply -f /home/devopsadmin/insuredepoansible.yaml"
       register: deployment_result
 
     - name: Check if deployment applied successfully
