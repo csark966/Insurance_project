@@ -18,12 +18,14 @@
       debug:
         var: copy_result
 
+    - name: Install kubernetes library
+      ansible.builtin.pip:
+        name: kubernetes
+
     - name: Apply the deployment on remote server
-      k8s:
-        state: present
-        src: "{{ remote_deployment_file }}/insuredepoansible.yaml"
+      command: "kubectl apply -f /home/devopsadmin/insuredepoansible.yaml"
       register: deployment_result
 
-    - name: Check if deployment was applied successfully
+    - name: Check if deployment applied successfully
       debug:
         var: deployment_result
