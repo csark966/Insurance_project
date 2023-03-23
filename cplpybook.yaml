@@ -6,7 +6,6 @@
   vars:
     local_deployment_file: /etc/ansible/insuredepoansible.yaml
     remote_deployment_file: /home/devopsadmin
-    
 
   tasks:
     - name: Copy deployment file to remote server
@@ -20,11 +19,11 @@
         var: copy_result
 
     - name: Apply the deployment on remote server
-      command: "kubectl apply -f /home/devopsadmin/insuredepoansible.yaml"
+      k8s:
+        state: present
+        src: "{{ remote_deployment_file }}/insuredepoansible.yaml"
       register: deployment_result
 
-    - name: Check if deployment applied successfully
+    - name: Check if deployment was applied successfully
       debug:
         var: deployment_result
-
-
